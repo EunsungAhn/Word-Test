@@ -13,7 +13,7 @@ export default function App() {
     if (savedTime && Date.now() - parseInt(savedTime) < EXPIRATION_TIME) {
       setAuthenticated(true);
     }
-  }, []);
+  }, [EXPIRATION_TIME]);
 
   const handleLogin = () => {
     if (inputPassword === correctPassword) {
