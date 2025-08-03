@@ -1,0 +1,41 @@
+fatigue	피로
+checkup	건강 진단
+symtom	증상
+physician	내과의사
+diagnosis	진단
+prescribe	(약을)처방하다, 규정하다
+recovery	회복, 쾌유
+recognize	인정하다, 알아보다 (organize 조직하다)
+join	~에 가입하다
+comprehensive	종합적인, 포괄적인
+participate	참여하다, 참가하다
+recommend	권고하다, 추천하다
+necessary	필요한
+ability	능력
+operation	수술
+cleanliness	청결
+duration	지속 기간, 지속
+examination	진찰, 검사
+eliminate	제거하다(elimination 제거)
+easily	쉽게
+dental	치과의
+dietary	식이 요법의, 규정식의
+related	관련된
+transmit	전염시키다(transmittable 전염가능한, 유전가능한)
+periodically	주기적으로
+reaction	반응
+simple	단순한
+coverage	(보험의)보상 범위; (신문 등의)보도, 취재범위
+exposure	노출
+pharmaceutical	제약의, 약학의
+premium	보험료
+relieve	완화시키다
+combination	결합, 연합
+conscious	알고 있는, 자각하고 있는 (consciousness : 의식)
+deprivation	박탈, 상실(deprivative 박탈하는, 빼앗는)
+health	건강; (사회,기관의,)번영,안녕
+induce	유발하다 (reduce줄이다, 낮추다)
+insurance	보험
+nutrition	영양
+prevention	예방(prevent 예방하다, 방해하다)
+susceptible	~에 감염되기 쉬운, 영향 받기 쉬운

@@ -1,0 +1,40 @@
+congestion	(교통의)체증, 혼잡 (congest 혼잡하게 하다)
+alleviate	완화하다
+divert	우회시키다, 다른 곳으로 돌리다
+detour	우회
+fuel	연료
+malfunction	오작동, 기능불량
+permit	허락하다, 허가증
+transportation	교통(수단), 운송 수단
+opportunity	기회
+clearly	명확히
+ongoing	계속 진행 중인
+detailed	상세한
+alternative	대안, 대체, 다른, 대신의
+obtain	획득하다, 얻다
+designated	지정된
+intersection	교차로, 교차지점
+equip	갖추다, 설비하다
+commute	통근하다
+downtown	시내에서, 도심지로
+automotive	자동차의
+closure	폐쇄
+vehicle	차량, 운송 수단
+platform	승강장
+official	공무원, 관리, 공식적인
+transit	교통, 수송, 통과하다
+fare	교통요금
+expense	비용, 지출
+trust	신뢰, 신임, 믿다, 신뢰하다
+head	(~의 방향으로)나아가다, 향하게 하다
+drive	(차 등을)운전하다, 타고가다, 조종하다
+fine	벌금
+pass	지나가다, 통과하다
+securely	(매듭 등이)단단하게, 튼튼하게
+prominently	눈에 잘 띄게, 두드러지게 (prominent 눈에 띄는)
+reserved	예약된, 예약한; 지정된
+average	평균치, 평균
+collision	충돌
+tow	견인하다
+reverse	뒤의, 반대의
+obstruct	(전망 등을)가리다, 차단하다; (도로 등을)막다 (obstruction 장애물, 방해물)
