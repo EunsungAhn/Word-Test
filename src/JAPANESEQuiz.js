@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function TOEICQuiz({ category, fileName, onBack }) {
+function JAPANESEQuiz({ category, fileName, onBack }) {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMeaning, setShowMeaning] = useState(false);
@@ -28,8 +28,12 @@ function TOEICQuiz({ category, fileName, onBack }) {
           .split(/\r?\n/)
           .filter((line) => line.trim() !== '')
           .map((line) => {
-            const [word, meaning] = line.split('\t');
-            return { word: word ? word.trim() : '', meaning: meaning ? meaning.trim() : '' };
+            const parts = line.split('\t');
+            return {
+              word: parts[0] ? parts[0].trim() : '',
+              reading: parts.length >= 3 ? parts[1].trim() : '',
+              meaning: parts.length >= 3 ? parts[2].trim() : (parts[1] ? parts[1].trim() : ''),
+            };
           });
 
         setWords(shuffleArray(parsedWords));
@@ -72,23 +76,26 @@ function TOEICQuiz({ category, fileName, onBack }) {
   return (
     <div style={{ textAlign: 'center', padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
       <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
-      <h3>TOEIC - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
+      <h3>일본어 - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
 
       <div 
         onClick={handleAction}
         style={{
           border: '2px solid #333', borderRadius: '12px', padding: '35px 20px 25px 20px', margin: '20px 0',
-          height: '160px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
+          height: '180px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
           alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
         }}
       >
-        <h1 style={{ margin: '0 0 16px 0', fontSize: '32px', lineHeight: '1.2' }}>{currentWord.word}</h1>
+        <h1 style={{ margin: '0 0 16px 0', fontSize: '36px', lineHeight: '1.2' }}>{currentWord.word}</h1>
         
-        <div style={{ minHeight: '30px', display: 'flex', alignItems: 'center' }}>
+        <div style={{ minHeight: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
           {showMeaning ? (
-            <p style={{ fontSize: '20px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>{currentWord.meaning}</p>
+            <>
+              {currentWord.reading && <span style={{ fontSize: '18px', color: '#E64A19', fontWeight: 'bold' }}>{currentWord.reading}</span>}
+              <span style={{ fontSize: '20px', color: '#1E88E5', fontWeight: '500' }}>{currentWord.meaning}</span>
+            </>
           ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>(클릭하여 뜻 확인)</p>
+            <span style={{ color: '#ccc', fontSize: '14px', marginTop: '10px' }}>(클릭하여 뜻 확인)</span>
           )}
         </div>
       </div>
@@ -108,4 +115,4 @@ function TOEICQuiz({ category, fileName, onBack }) {
   );
 }
 
-export default TOEICQuiz;
+export default JAPANESEQuiz;

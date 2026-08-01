@@ -1,50 +1,66 @@
-import React, { useState, useEffect } from "react";
-import TOEICQuiz from "./TOEICQuiz";
+import React, { useState } from 'react';
+import DaySelector from './DaySelector';
+import TOEICQuiz from './TOEICQuiz';
+import JAPANESEQuiz from './JAPANESEQuiz';
+import KANJIQuiz from './KANJIQuiz';
+import './App.css';
 
-export default function App() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [inputPassword, setInputPassword] = useState("");
+function App() {
+  const [category, setCategory] = useState(null); // 'toeic' | 'japanese' | 'kanji'
+  const [selectedFileName, setSelectedFileName] = useState(null);
 
-  const correctPassword = "dmstjd";
-  const EXPIRATION_TIME = 60 * 60 * 1000; // 1시간 (밀리초)
-
-  useEffect(() => {
-    const savedTime = localStorage.getItem("loginTime");
-    if (savedTime && Date.now() - parseInt(savedTime) < EXPIRATION_TIME) {
-      setAuthenticated(true);
-    }
-  }, [EXPIRATION_TIME]);
-
-  const handleLogin = () => {
-    if (inputPassword === correctPassword) {
-      setAuthenticated(true);
-      localStorage.setItem("loginTime", Date.now().toString());
-    } else {
-      alert("비밀번호가 틀렸습니다.");
-    }
-  };
-
-  if (!authenticated) {
+  // 1. 과목 선택 화면 (비밀번호 화면 제거됨)
+  if (!category) {
     return (
-      <div style={{ padding: "2rem", textAlign: "center" }}>
-        <h2>비밀번호를 입력하세요</h2>
-        <input
-          type="password"
-          value={inputPassword}
-          onChange={(e) => setInputPassword(e.target.value)}
-          placeholder="비밀번호"
-          style={{ padding: "0.5rem", fontSize: "1rem" }}
-        />
-        <br />
-        <button
-          onClick={handleLogin}
-          style={{ marginTop: "1rem", padding: "0.5rem 1rem", fontSize: "1rem" }}
-        >
-          확인
-        </button>
+      <div style={{ textAlign: 'center', marginTop: '80px' }}>
+        <h1>학습 과목 선택</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '40px' }}>
+          <button
+            onClick={() => setCategory('toeic')}
+            style={{ padding: '20px 40px', fontSize: '20px', cursor: 'pointer', borderRadius: '8px' }}
+          >
+            TOEIC
+          </button>
+          <button
+            onClick={() => setCategory('japanese')}
+            style={{ padding: '20px 40px', fontSize: '20px', cursor: 'pointer', borderRadius: '8px' }}
+          >
+            Japanese
+          </button>
+          <button
+            onClick={() => setCategory('kanji')}
+            style={{ padding: '20px 40px', fontSize: '20px', cursor: 'pointer', borderRadius: '8px' }}
+          >
+            Kanji
+          </button>
+        </div>
       </div>
     );
   }
 
-  return <TOEICQuiz />;
+  // 2. 파일 선택 화면
+  if (!selectedFileName) {
+    return (
+      <DaySelector
+        category={category}
+        onSelectFile={(fileName) => setSelectedFileName(fileName)}
+        onBack={() => setCategory(null)}
+      />
+    );
+  }
+
+  // 3. 단어 퀴즈 화면 (과목별로 다른 컴포넌트 렌더링)
+  const handleBack = () => setSelectedFileName(null);
+
+  if (category === 'japanese') {
+    return <JAPANESEQuiz category={category} fileName={selectedFileName} onBack={handleBack} />;
+  }
+  if (category === 'kanji') {
+    return <KANJIQuiz category={category} fileName={selectedFileName} onBack={handleBack} />;
+  }
+  
+  // 기본값 (TOEIC)
+  return <TOEICQuiz category={category} fileName={selectedFileName} onBack={handleBack} />;
 }
+
+export default App;
