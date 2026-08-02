@@ -6,6 +6,7 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
   const [showMeaning, setShowMeaning] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // Fisher-Yates 셔플 함수
   const shuffleArray = (array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -28,11 +29,12 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
           .split(/\r?\n/)
           .filter((line) => line.trim() !== '')
           .map((line) => {
-            const parts = line.split('\t');
+            const [num, word, meaning, furigana] = line.split('\t');
             return {
-              word: parts[0] ? parts[0].trim() : '',
-              reading: parts.length >= 3 ? parts[1].trim() : '',
-              meaning: parts.length >= 3 ? parts[2].trim() : (parts[1] ? parts[1].trim() : ''),
+              num: num ? num.trim() : '',
+              word: word ? word.trim() : '',
+              meaning: meaning ? meaning.trim() : '',
+              furigana: furigana ? furigana.trim() : '',
             };
           });
 
@@ -81,21 +83,27 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
       <div 
         onClick={handleAction}
         style={{
-          border: '2px solid #333', borderRadius: '12px', padding: '35px 20px 25px 20px', margin: '20px 0',
-          height: '180px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
+          border: '2px solid #333', borderRadius: '12px', padding: '20px', margin: '20px 0',
+          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
           alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
         }}
       >
-        <h1 style={{ margin: '0 0 16px 0', fontSize: '36px', lineHeight: '1.2' }}>{currentWord.word}</h1>
+        <h1 style={{ margin: '10px 0 20px 0', fontSize: '60px', lineHeight: '1' }}>{currentWord.word}</h1>
         
-        <div style={{ minHeight: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+        <div style={{ minHeight: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           {showMeaning ? (
             <>
-              {currentWord.reading && <span style={{ fontSize: '18px', color: '#E64A19', fontWeight: 'bold' }}>{currentWord.reading}</span>}
-              <span style={{ fontSize: '20px', color: '#1E88E5', fontWeight: '500' }}>{currentWord.meaning}</span>
+              {currentWord.furigana && (
+                <p style={{ fontSize: '18px', color: '#AB47BC', margin: '0 0 4px 0', fontWeight: 'bold' }}>
+                  {currentWord.furigana}
+                </p>
+              )}
+              <p style={{ fontSize: '24px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>
+                {currentWord.meaning}
+              </p>
             </>
           ) : (
-            <span style={{ color: '#ccc', fontSize: '14px', marginTop: '10px' }}>(클릭하여 뜻 확인)</span>
+            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>(클릭하여 뜻 확인)</p>
           )}
         </div>
       </div>

@@ -90,12 +90,12 @@ const FILE_MAP = {
     { id: 'day_30.txt', name: 'Day 30' },
   ],
   japanese: [
-    { id: '0_이형용사_ad.txt', name: 'い형용사' },
-    { id: '0_이형용사_hard.txt', name: 'い형용사 고난도' },
+    { id: '0_이형용사.txt', name: 'い형용사 고난도' },
+    { id: '0_이형용사_고난도.txt', name: 'い형용사' },
     { id: '1_나형용사.txt', name: 'な형용사' },
-    { id: '2_동사.txt', name: '동사' },
     { id: '2_동사_고난도.txt', name: '동사 고난도' },
-    { id: '3_좋아요일본어_1.txt', name: '3_좋아요일본어 1과' },
+    { id: '2_동사.txt', name: '동사' },
+    { id: '3_좋아요일본어_1.txt', name: '좋아요일본어 1과' },
     { id: '4_문장.txt', name: '문장' },
   ],
 };
