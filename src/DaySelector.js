@@ -90,14 +90,13 @@ const FILE_MAP = {
     { id: 'day_30.txt', name: 'Day 30' },
   ],
   japanese: [
-    { id: '0_ _ad.txt', name: '0_ 형용사 모음' },
-    { id: '0_ _hard.txt', name: '0_ 고난도 단어' },
-    { id: '1_ _ad.txt', name: '1_ 형용사' },
-    { id: '2_ .txt', name: '2_ 기본 단어' },
-    { id: '2_ _0.txt', name: '2_ 기초 0' },
-    { id: '2_ _0726.txt', name: '2_ 0726 단어' },
-    { id: '2_ _trans.txt', name: '2_ 타동사/자동사' },
-    { id: '3_ _1.txt', name: '3_ 고급 1' },
+    { id: '0_이형용사_ad.txt', name: 'い형용사' },
+    { id: '0_이형용사_hard.txt', name: 'い형용사 고난도' },
+    { id: '1_나형용사.txt', name: 'な형용사' },
+    { id: '2_동사.txt', name: '동사' },
+    { id: '2_동사_고난도.txt', name: '동사 고난도' },
+    { id: '3_좋아요일본어_1.txt', name: '3_좋아요일본어 1과' },
+    { id: '4_문장.txt', name: '문장' },
   ],
 };
 
