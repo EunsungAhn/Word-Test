@@ -65,8 +65,8 @@ function TOEICQuiz({ category, fileName, onBack }) {
 
   const getButtonText = () => {
     if (!showMeaning) return '정답 확인';
-    if (isLastWord) return '재시작 🔄';
-    return '다음 단어 →';
+    if (isLastWord) return '재시작';
+    return '다음 단어';
   };
 
   return (
