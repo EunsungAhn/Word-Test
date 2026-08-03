@@ -51,24 +51,19 @@ function KANJIQuiz({ category, fileName, onBack }) {
 
   const handleAction = () => {
     if (!showMeaning) {
-      // 1. 뜻 확인
       setShowMeaning(true);
     } else {
-      // 2. 뜻이 보이는 상태에서 클릭 시
       if (isLastWord) {
-        // 마지막 단어였으면 다시 셔플하고 1번으로 리셋
         setWords(shuffleArray(words));
         setCurrentIndex(0);
         setShowMeaning(false);
       } else {
-        // 다음 단어로 이동
         setShowMeaning(false);
         setCurrentIndex((prev) => prev + 1);
       }
     }
   };
 
-  // 버튼에 표시될 텍스트 결정
   const getButtonText = () => {
     if (!showMeaning) return '정답 확인';
     if (isLastWord) return '재시작 🔄';
@@ -80,17 +75,18 @@ function KANJIQuiz({ category, fileName, onBack }) {
       <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
       <h3>한자 - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
 
+      {/* 수직 중앙 정렬(justifyContent: 'center') 적용 */}
       <div 
         onClick={handleAction}
         style={{
           border: '2px solid #333', borderRadius: '12px', padding: '20px', margin: '20px 0',
-          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
+          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
           alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
         }}
       >
-        <h1 style={{ margin: '10px 0 20px 0', fontSize: '80px', lineHeight: '1' }}>{currentWord.word}</h1>
+        <h1 style={{ margin: '0 0 16px 0', fontSize: '70px', lineHeight: '1.1' }}>{currentWord.word}</h1>
         
-        <div style={{ minHeight: '30px', display: 'flex', alignItems: 'center' }}>
+        <div style={{ minHeight: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {showMeaning ? (
             <p style={{ fontSize: '24px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>{currentWord.meaning}</p>
           ) : (
@@ -104,7 +100,6 @@ function KANJIQuiz({ category, fileName, onBack }) {
         style={{
           padding: '12px 24px', fontSize: '18px', color: '#fff', border: 'none', borderRadius: '6px',
           cursor: 'pointer', width: '100%', maxWidth: '300px', fontWeight: 'bold',
-          // 재시작일 때는 주황색/포인트 컬러 적용, 다음 단어일 때는 초록색
           backgroundColor: !showMeaning ? '#64B5F6' : (isLastWord ? '#FF9800' : '#78C850'),
           transition: 'background-color 0.2s ease'
         }}

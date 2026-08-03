@@ -80,17 +80,18 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
       <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
       <h3>일본어 - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
 
+      {/* 수직 중앙 정렬(justifyContent: 'center') 적용 */}
       <div 
         onClick={handleAction}
         style={{
           border: '2px solid #333', borderRadius: '12px', padding: '20px', margin: '20px 0',
-          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
+          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
           alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
         }}
       >
-        <h1 style={{ margin: '10px 0 20px 0', fontSize: '60px', lineHeight: '1' }}>{currentWord.word}</h1>
+        <h1 style={{ margin: '0 0 12px 0', fontSize: '56px', lineHeight: '1.1' }}>{currentWord.word}</h1>
         
-        <div style={{ minHeight: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ minHeight: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           {showMeaning ? (
             <>
               {currentWord.furigana && (
@@ -98,7 +99,7 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
                   {currentWord.furigana}
                 </p>
               )}
-              <p style={{ fontSize: '24px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>
+              <p style={{ fontSize: '22px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>
                 {currentWord.meaning}
               </p>
             </>

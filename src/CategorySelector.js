@@ -5,9 +5,9 @@ function CategorySelector() {
   const navigate = useNavigate();
 
   const categories = [
-    { id: 'kanji', name: '한자 (KANJI)' },
-    { id: 'japanese', name: '일본어 (JAPANESE)' },
-    { id: 'toeic', name: '토익 (TOEIC)' },
+    { id: 'kanji', name: '한자' },
+    { id: 'japanese', name: '일본어' },
+    { id: 'toeic', name: '토익' },
   ];
 
   return (
