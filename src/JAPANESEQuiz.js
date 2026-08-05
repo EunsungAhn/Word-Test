@@ -29,12 +29,12 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
           .split(/\r?\n/)
           .filter((line) => line.trim() !== '')
           .map((line) => {
-            const [num, word, meaning, furigana] = line.split('\t');
+            const [num, word, furigana, meaning] = line.split('\t');
             return {
               num: num ? num.trim() : '',
               word: word ? word.trim() : '',
-              meaning: meaning ? meaning.trim() : '',
               furigana: furigana ? furigana.trim() : '',
+              meaning: meaning ? meaning.trim() : '',
             };
           });
 
