@@ -56,6 +56,10 @@ const KANJI_GROUPS = [
 
 // 일본어 파일 데이터 (숫자 카테고리별 대괄호 중첩 구조 - KANJI_GROUPS와 동일 구조)
 const JAPANESE_GROUPS = [
+  // tmp
+  [
+    { id: 'tmp.txt', name: 'tmp' },
+  ],
   // 0_
   [
     { id: '0_이형용사.txt', name: 'い형용사' },
