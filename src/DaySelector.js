@@ -51,6 +51,16 @@ const KANJI_GROUPS = [
     { id: '4-13.txt', name: '4급 (13)' },
     { id: '4-14.txt', name: '4급 (14)' },
     { id: '4-15.txt', name: '4급 (15)' },
+  ],
+  // 급수별 total
+  [
+    { id: 'tmp.txt', name: 'tmp' },
+    { id: 'total_987.txt', name: '9, 8, 7급' },
+    { id: 'total_6.txt', name: '6급' },
+    { id: 'total_5.txt', name: '5급' },
+    { id: 'total_4_1.txt', name: '4급 - 1' },
+    { id: 'total_4_2.txt', name: '4급 - 2' },
+    { id: 'total_4_3.txt', name: '4급 - 3' },
   ]
 ];
 
