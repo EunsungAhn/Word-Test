@@ -55,6 +55,8 @@ const KANJI_GROUPS = [
   // 급수별 total
   [
     { id: 'tmp.txt', name: 'tmp' },
+    { id: 'confused1.txt', name: '헷갈려1' },
+    { id: 'confused2.txt', name: '헷갈려2' },
     { id: 'total_987.txt', name: '9, 8, 7급' },
     { id: 'total_6.txt', name: '6급' },
     { id: 'total_5.txt', name: '5급' },
