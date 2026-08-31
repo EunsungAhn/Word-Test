@@ -5,6 +5,7 @@ import DaySelector from './DaySelector';
 import KANJIQuiz from './KANJIQuiz';
 import TOEICQuiz from './TOEICQuiz';
 import JAPANESEQuiz from './JAPANESEQuiz';
+import JOAYOQuiz from './JOAYOQuiz';
 
 // 라우터용 퀴즈 래퍼 컴포넌트 (URL 파라미터를 읽어와 Quiz 컴포넌트에 전달)
 function QuizWrapper() {
@@ -19,6 +20,8 @@ function QuizWrapper() {
     return <KANJIQuiz category={category} fileName={fileName} onBack={handleBack} />;
   } else if (category === 'japanese') {
     return <JAPANESEQuiz category={category} fileName={fileName} onBack={handleBack} />;
+  } else if (category === 'joayo') {
+    return <JOAYOQuiz category={category} fileName={fileName} onBack={handleBack} />;
   } else {
     return <TOEICQuiz category={category} fileName={fileName} onBack={handleBack} />;
   }
