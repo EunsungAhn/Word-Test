@@ -82,7 +82,7 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
 
       {/* 수직 중앙 정렬(justifyContent: 'center') 적용 */}
       <div 
-        onClick={handleAction}
+        // onClick={handleAction}
         style={{
           border: '2px solid #333', borderRadius: '12px', padding: '20px', margin: '20px 0',
           height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
@@ -104,7 +104,8 @@ function JAPANESEQuiz({ category, fileName, onBack }) {
               </p>
             </>
           ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>(클릭하여 뜻 확인)</p>
+            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>정답을 확인하세요.</p>
+            // (클릭하여 뜻 확인)
           )}
         </div>
       </div>

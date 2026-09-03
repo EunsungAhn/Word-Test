@@ -104,7 +104,7 @@ function JOAYOQuiz({ category, fileName, onBack }) {
               </p>
             </>
           ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>(클릭하여 뜻 확인)</p>
+            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>정답을 확인하세요.</p>
           )}
         </div>
       </div>

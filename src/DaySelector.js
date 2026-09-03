@@ -57,6 +57,7 @@ const KANJI_GROUPS = [
     { id: 'total_4_3.txt', name: '4 - 3' },
     { id: 'confused1.txt', name: '헷갈려 1' },
     { id: 'confused2.txt', name: '헷갈려 2' },
+    { id: 'confused3.txt', name: '260902' },
     { id: '60갑자.txt', name: '60갑자 (시험X)' },
     { id: '어조사.txt', name: '어조사 (시험X)' },
   ]
@@ -66,8 +67,12 @@ const KANJI_GROUPS = [
 const JAPANESE_GROUPS = [
   // tmp
   [
-    { id: 'tmp.txt', name: 'tmp' },
+    { id: 'tmp.txt', name: 'N3 청/탁/반탁음 1' },
+    { id: 'tmp2.txt', name: 'N3 청/탁/반탁음 2' },
   ],
+  [],
+  [],
+  // [],
   [
     { id: '0_이형용사.txt', name: 'い형용사' },
     { id: '0_나형용사.txt', name: 'な형용사' },
@@ -183,7 +188,10 @@ const JOAYO_GROUPS = [
     { id: '4_좋아요4_17.txt', name: '4 - 17과' },
     { id: '4_좋아요4_18.txt', name: '4 - 18과' },
     { id: '4_좋아요4_19.txt', name: '4 - 19과' },
-    { id: '4_좋아요4_20.txt', name: '4 - 20과' },
+    
+  ],
+  [
+    { id: '한자단어.txt', name: '한자 단어' },
   ],
 ];
 

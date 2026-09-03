@@ -90,7 +90,7 @@ function KANJIQuiz({ category, fileName, onBack }) {
           {showMeaning ? (
             <p style={{ fontSize: '24px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>{currentWord.meaning}</p>
           ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>(클릭하여 뜻 확인)</p>
+            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>정답을 확인하세요.</p>
           )}
         </div>
       </div>
