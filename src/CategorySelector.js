@@ -14,7 +14,8 @@ function CategorySelector() {
   return (
     <div style={{ textAlign: 'center', padding: '40px 20px' }}>
       <h1>단어장 학습 앱</h1>
-      <p style={{ color: '#666', marginBottom: '30px' }}>공부할 과목을 선택하세요.</p>
+      <p style={{ color: '#666', marginBottom: '30px' }}>오타 제보는 esahn97@gmail.com</p>
+      
       
       <div style={{
         display: 'flex',
