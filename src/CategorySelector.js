@@ -8,6 +8,7 @@ function CategorySelector() {
     { id: 'kanji', name: '한자' },
     { id: 'japanese', name: '일본어' },
     { id: 'joayo', name: '좋아요 일본어' },
+    { id: 'darakwon', name: '다락원 JLPT' },
     { id: 'toeic', name: '해커스 노랭이' },
   ];
 

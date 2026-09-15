@@ -67,8 +67,9 @@ const KANJI_GROUPS = [
 const JAPANESE_GROUPS = [
   // tmp
   [
-    { id: 'tmp.txt', name: 'N3 청/탁/반탁음 1' },
-    { id: 'tmp2.txt', name: 'N3 청/탁/반탁음 2' },
+    { id: 'tmp3.txt', name: '260910' },
+    { id: 'tmp.txt', name: 'tmp 1' },
+    { id: 'tmp2.txt', name: 'tmp 2' },
   ],
   [],
   [],
@@ -181,6 +182,24 @@ const JOAYO_GROUPS = [
   ],
 ];
 
+const DARAKWON_GROUPS = [
+  [
+    { id: 'N4_1장_문제1_1.txt', name: '問題1 21-25\'' },
+    { id: 'N4_1장_문제1_2.txt', name: '問題1 16-20\'' },
+    { id: 'N4_1장_문제1_3.txt', name: '問題1 00-15\'' },
+  ],
+  [
+    { id: 'N4_1장_문제2_1.txt', name: '問題1 21-25\'' },
+    { id: 'N4_1장_문제2_2.txt', name: '問題1 16-20\'' },
+    { id: 'N4_1장_문제2_3.txt', name: '問題1 00-15\'' },
+  ],
+  [
+    { id: 'N4_1장_문제3_1.txt', name: '問題1 21-25\'' },
+    { id: 'N4_1장_문제3_2.txt', name: '問題1 16-20\'' },
+    { id: 'N4_1장_문제3_3.txt', name: '問題1 00-15\'' },
+  ],
+];
+
 
 
 
@@ -209,6 +228,8 @@ function DaySelector({ category, onSelectFile, onBack }) {
         return 'JAPANESE';
       case 'joayo':
         return 'JOAYO';
+      case 'darakwon':
+        return 'DARAKWON';
       case 'toeic':
         return 'TOEIC';
       default:
@@ -305,6 +326,40 @@ function DaySelector({ category, onSelectFile, onBack }) {
       {category === 'joayo' && (
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {JOAYO_GROUPS.map((group, groupIdx) => (
+            <div key={groupIdx}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
+                  gap: '10px'
+                }}
+              >
+                {group.map((file) => (
+                  <button
+                    key={file.id}
+                    onClick={() => onSelectFile(file.id, file.name)}
+                    style={{
+                      padding: '14px 10px',
+                      fontSize: '15px',
+                      fontWeight: 'bold',
+                      borderRadius: '8px',
+                      border: '1px solid #ccc',
+                      backgroundColor: '#f8f9fa',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {file.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {category === 'darakwon' && (
+        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {DARAKWON_GROUPS.map((group, groupIdx) => (
             <div key={groupIdx}>
               <div
                 style={{
