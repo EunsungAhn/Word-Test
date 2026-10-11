@@ -80,7 +80,14 @@ const JAPANESE_GROUPS = [
     { id: '0_동사.txt', name: '동사' },
     { id: '0_자동사타동사.txt', name: '자/타동사 예문' },
     { id: '0_자동사타동사2.txt', name: '자/타동사 단어' },
+    { id: '0_N3문법_1.txt', name: 'N3 문법 1' },
+    { id: '0_N3문법_2.txt', name: 'N3 문법 2' },
+    { id: '0_N3문법_3.txt', name: 'N3 문법 3' },
+    { id: '0_N3문법_4.txt', name: 'N3 문법 4' },
+    { id: '0_N3문법_5.txt', name: 'N3 문법 5' },
   ],
+  [],
+  [],
   [
     { id: '5_N3_1_필수어휘_1.txt', name: 'N4 필수어휘 1' },
     { id: '5_N3_2_필수어휘_2.txt', name: 'N4 필수어휘 2' },
@@ -228,10 +235,30 @@ const DARAKWON_GROUPS = [
   [
     { id: 'N3_1장_문제1_1.txt', name: 'N3 1장 1-1' },
     { id: 'N3_1장_문제1_2.txt', name: 'N3 1장 1-2' },
+    { id: 'N3_1장_문제1_hard.txt', name: '문제1 🥵' },
   ],
   [
     { id: 'N3_1장_문제2_1.txt', name: 'N3 1장 2-1' },
     { id: 'N3_1장_문제2_2.txt', name: 'N3 1장 2-2' },
+    { id: 'N3_1장_문제2_hard.txt', name: '문제2 🥵' },
+    { id: 'N3_1장_문제2_tmp.txt', name: '문제2 tmp' },
+
+  ],
+  [
+    { id: 'N3_1장_문제3_1.txt', name: 'N3 1장 3-1' },
+    { id: 'N3_1장_문제3_2.txt', name: 'N3 1장 3-2' },
+    { id: 'N3_1장_문제3_hard.txt', name: '문제3 🥵' },
+    { id: 'N3_1장_문제3_tmp.txt', name: '문제3 tmp' },
+  ],
+  [
+    { id: 'N3_1장_문제4_1.txt', name: 'N3 1장 4-1' },
+    { id: 'N3_1장_문제4_2.txt', name: 'N3 1장 4-2' },
+    { id: 'N3_1장_문제4_hard.txt', name: '문제4 🥵' },
+  ],
+  [
+    { id: 'N3_1장_문제5_1.txt', name: 'N3 1장 5-1' },
+    { id: 'N3_1장_문제5_2.txt', name: 'N3 1장 5-2' },
+    { id: 'N3_1장_문제5_hard.txt', name: '문제5 🥵' },
   ],
   [
     { id: 'N3_2장_1.txt', name: 'N3 2장 1' },
@@ -254,10 +281,6 @@ const DARAKWON_GROUPS = [
     { id: 'N3_2장_18.txt', name: 'N3 2장 18' },
     { id: 'N3_2장_19.txt', name: 'N3 2장 19' },
     { id: 'N3_2장_20.txt', name: 'N3 2장 20' },
-  ],
-  [
-    { id: 'N3_1장_문제3_1.txt', name: 'N3 1장 3-1' },
-    { id: 'N3_1장_문제3_2.txt', name: 'N3 1장 3-2' },
   ],
 ];
 

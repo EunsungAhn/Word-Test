@@ -96,8 +96,8 @@ function DARAKWONQuiz({ category, fileName, onBack }) {
             <>
               {currentWord.furigana && (
                 <p style={{ fontSize: '18px', color: '#AB47BC', margin: '0 0 4px 0', fontWeight: 'bold' }}>
-                  {currentWord.furigana}
-                </p>
+                {currentWord.furigana}
+            </p>
               )}
               <p style={{ fontSize: '22px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>
                 {currentWord.meaning}
