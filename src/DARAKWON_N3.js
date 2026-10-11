@@ -78,7 +78,7 @@ function DARAKWON_N3({ category, fileName, onBack }) {
   return (
     <div style={{ textAlign: 'center', padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
       <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
-      <h3>일본어 - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
+      <h4>{displayTitle} ({currentIndex + 1} / {words.length})</h4>
 
       {/* 수직 중앙 정렬(justifyContent: 'center') 적용 */}
       <div 

@@ -239,14 +239,11 @@ const DARAKWON_N3_GROUPS = [
     { id: 'N3_1장_문제2_1.txt', name: 'N3 1장 2-1' },
     { id: 'N3_1장_문제2_2.txt', name: 'N3 1장 2-2' },
     { id: 'N3_1장_문제2_hard.txt', name: '문제2 🥵' },
-    { id: 'N3_1장_문제2_tmp.txt', name: '문제2 tmp' },
-
   ],
   [
     { id: 'N3_1장_문제3_1.txt', name: 'N3 1장 3-1' },
     { id: 'N3_1장_문제3_2.txt', name: 'N3 1장 3-2' },
     { id: 'N3_1장_문제3_hard.txt', name: '문제3 🥵' },
-    { id: 'N3_1장_문제3_tmp.txt', name: '문제3 tmp' },
   ],
   [
     { id: 'N3_1장_문제4_1.txt', name: 'N3 1장 4-1' },
