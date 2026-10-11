@@ -6,7 +6,8 @@ import KANJIQuiz from './KANJIQuiz';
 import TOEICQuiz from './TOEICQuiz';
 import JAPANESEQuiz from './JAPANESEQuiz';
 import JOAYOQuiz from './JOAYOQuiz';
-import DARAKWONOQuiz from './DARAKWONQuiz';
+import DARAKWON_N3 from './DARAKWON_N3';
+import DARAKWON_N4 from './DARAKWON_N4';
 
 // 라우터용 퀴즈 래퍼 컴포넌트 (URL 파라미터를 읽어와 Quiz 컴포넌트에 전달)
 function QuizWrapper() {
@@ -23,8 +24,10 @@ function QuizWrapper() {
     return <JAPANESEQuiz category={category} fileName={fileName} onBack={handleBack} />;
   } else if (category === 'joayo') {
     return <JOAYOQuiz category={category} fileName={fileName} onBack={handleBack} />;
-  } else if (category === 'darakwon') {
-    return <DARAKWONOQuiz category={category} fileName={fileName} onBack={handleBack} />;
+  } else if (category === 'darakwon_n3') {
+    return <DARAKWON_N3 category={category} fileName={fileName} onBack={handleBack} />;
+  } else if (category === 'darakwon_n4') {
+    return <DARAKWON_N4 category={category} fileName={fileName} onBack={handleBack} />;
   } else {
     return <TOEICQuiz category={category} fileName={fileName} onBack={handleBack} />;
   }

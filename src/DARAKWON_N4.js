@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function DARAKWONQuiz({ category, fileName, onBack }) {
+function DARAKWON_N4({ category, fileName, onBack }) {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMeaning, setShowMeaning] = useState(false);
@@ -124,4 +124,4 @@ function DARAKWONQuiz({ category, fileName, onBack }) {
   );
 }
 
-export default DARAKWONQuiz;
+export default DARAKWON_N4;

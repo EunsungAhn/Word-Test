@@ -189,13 +189,7 @@ const JOAYO_GROUPS = [
   ],
 ];
 
-const DARAKWON_GROUPS = [
-  [
-    { id: '0_tmp.txt', name: 'tmp' },
-    
-  ],
-  [],
-  [],
+const DARAKWON_N4_GROUPS = [
   [    
     { id: 'N4_1장_hard.txt', name: '1장 🤯' },
     { id: 'N4_2장_hard.txt', name: '2장 🤯' },
@@ -230,8 +224,12 @@ const DARAKWON_GROUPS = [
     { id: 'N4_3장_접속사.txt', name: '3장 접속사' },
     { id: 'N4_3장_부사.txt', name: '3장 부사' },
   ],
-  [],
-  [],
+];
+
+const DARAKWON_N3_GROUPS = [
+  [
+    { id: '0_tmp.txt', name: 'tmp' },
+  ],
   [
     { id: 'N3_1장_문제1_1.txt', name: 'N3 1장 1-1' },
     { id: 'N3_1장_문제1_2.txt', name: 'N3 1장 1-2' },
@@ -312,8 +310,10 @@ function DaySelector({ category, onSelectFile, onBack }) {
         return 'JAPANESE';
       case 'joayo':
         return 'JOAYO';
-      case 'darakwon':
-        return 'DARAKWON';
+      case 'darakwon_n3':
+        return 'DARAKWON_N3';
+        case 'darakwon_n4':
+          return 'DARAKWON_N4';
       case 'toeic':
         return 'TOEIC';
       default:
@@ -332,12 +332,11 @@ function DaySelector({ category, onSelectFile, onBack }) {
           cursor: 'pointer'
         }}
       >
-        ← 카테고리 선택으로
+        ← 목록으로
       </button>
 
       <h2>{getCategoryTitle()} 학습 선택</h2>
 
-      {/* 한자(kanji) : 대괄호 그룹 단위 렌더링 */}
       {category === 'kanji' && (
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {KANJI_GROUPS.map((group, groupIdx) => (
@@ -372,7 +371,6 @@ function DaySelector({ category, onSelectFile, onBack }) {
         </div>
       )}
 
-      {/* 일본어(japanese) : 한자와 완전 동일한 대괄호 그룹 렌더링 */}
       {category === 'japanese' && (
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {JAPANESE_GROUPS.map((group, groupIdx) => (
@@ -441,9 +439,9 @@ function DaySelector({ category, onSelectFile, onBack }) {
         </div>
       )}
 
-      {category === 'darakwon' && (
+      {category === 'darakwon_n3' && (
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {DARAKWON_GROUPS.map((group, groupIdx) => (
+          {DARAKWON_N3_GROUPS.map((group, groupIdx) => (
             <div key={groupIdx}>
               <div
                 style={{
@@ -475,7 +473,40 @@ function DaySelector({ category, onSelectFile, onBack }) {
         </div>
       )}
 
-      {/* 토익(toeic) : 기존 단일 그리드 렌더링 */}
+      {category === 'darakwon_n4' && (
+        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {DARAKWON_N4_GROUPS.map((group, groupIdx) => (
+            <div key={groupIdx}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
+                  gap: '10px'
+                }}
+              >
+                {group.map((file) => (
+                  <button
+                    key={file.id}
+                    onClick={() => onSelectFile(file.id, file.name)}
+                    style={{
+                      padding: '14px 10px',
+                      fontSize: '15px',
+                      fontWeight: 'bold',
+                      borderRadius: '8px',
+                      border: '1px solid #ccc',
+                      backgroundColor: '#f8f9fa',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {file.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       {category === 'toeic' && (
         <div
           style={{

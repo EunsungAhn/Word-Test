@@ -5,10 +5,11 @@ function CategorySelector() {
   const navigate = useNavigate();
 
   const categories = [
-    { id: 'kanji', name: '한자' },
     { id: 'japanese', name: '일본어' },
+    { id: 'darakwon_n3', name: '다락원 N3' },
+    { id: 'darakwon_n4', name: '다락원 N4' },
     { id: 'joayo', name: '좋아요 일본어' },
-    { id: 'darakwon', name: '다락원 JLPT' },
+    { id: 'kanji', name: '한자' },
     { id: 'toeic', name: '해커스 노랭이' },
   ];
 
