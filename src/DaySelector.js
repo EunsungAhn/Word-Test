@@ -279,6 +279,51 @@ const DARAKWON_N3_GROUPS = [
   ],
 ];
 
+const HACKERS_N3_GROUPS = [
+  [
+    { id: 'p32-33.txt', name: 'p32-33' },
+    { id: 'p34-35.txt', name: 'p34-35' },
+    { id: 'p36-37.txt', name: 'p36-37' },
+    { id: 'p38-39.txt', name: 'p38-39' },
+    { id: 'p40-41.txt', name: 'p40-41' },
+    { id: 'p42-43.txt', name: 'p42-43' },
+    { id: 'p44-45.txt', name: 'p44-45' },
+    { id: 'p46-47.txt', name: 'p46-47' },
+  ],
+  [
+    { id: 'p62-63.txt', name: 'p62-63' },
+    { id: 'p64-65.txt', name: 'p64-65' },
+    { id: 'p66-67.txt', name: 'p66-67' },
+    { id: 'p68-69.txt', name: 'p68-69' },
+    { id: 'p70-71.txt', name: 'p70-71' },
+    { id: 'p72-73.txt', name: 'p72-73' },
+  ],
+  [
+    { id: 'p88-89.txt', name: 'p88-89' },
+    { id: 'p90-91.txt', name: 'p90-91' },
+    { id: 'p92-93.txt', name: 'p92-93' },
+    { id: 'p94-95.txt', name: 'p94-95' },
+    { id: 'p96-97.txt', name: 'p96-97' },
+    { id: 'p98-99.txt', name: 'p98-99' },
+    { id: 'p100-101.txt', name: 'p100-101' },
+  ],
+  [
+    { id: 'p116-117.txt', name: 'p116-117' },
+    { id: 'p118-119.txt', name: 'p118-119' },
+    { id: 'p120-121.txt', name: 'p120-121' },
+    { id: 'p122-123.txt', name: 'p122-123' },
+    { id: 'p124-125.txt', name: 'p124-125' },
+  ],
+  [
+    { id: 'p140-141.txt', name: 'p140-141' },
+    { id: 'p142-143.txt', name: 'p142-143' },
+    { id: 'p144-145.txt', name: 'p144-145' },
+    { id: 'p146-147.txt', name: 'p146-147' },
+    { id: 'p148-149.txt', name: 'p148-149' },
+    { id: 'p150-151.txt', name: 'p150-151' },
+  ],
+];
+
 
 
 
@@ -307,6 +352,8 @@ function DaySelector({ category, onSelectFile, onBack }) {
         return 'JAPANESE';
       case 'joayo':
         return 'JOAYO';
+      case 'hackers_n3':
+        return 'HACKERS_N3';  
       case 'darakwon_n3':
         return 'DARAKWON_N3';
         case 'darakwon_n4':
@@ -405,6 +452,40 @@ function DaySelector({ category, onSelectFile, onBack }) {
       {category === 'joayo' && (
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {JOAYO_GROUPS.map((group, groupIdx) => (
+            <div key={groupIdx}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
+                  gap: '10px'
+                }}
+              >
+                {group.map((file) => (
+                  <button
+                    key={file.id}
+                    onClick={() => onSelectFile(file.id, file.name)}
+                    style={{
+                      padding: '14px 10px',
+                      fontSize: '15px',
+                      fontWeight: 'bold',
+                      borderRadius: '8px',
+                      border: '1px solid #ccc',
+                      backgroundColor: '#f8f9fa',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {file.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {category === 'hackers_n3' && (
+        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {HACKERS_N3_GROUPS.map((group, groupIdx) => (
             <div key={groupIdx}>
               <div
                 style={{
