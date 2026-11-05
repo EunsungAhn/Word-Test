@@ -281,6 +281,12 @@ const DARAKWON_N3_GROUPS = [
 
 const HACKERS_N3_GROUPS = [
   [
+    { id: 'p00-tmp.txt', name: 'tmp' },
+    { id: 'p00-hard.txt', name: 'hard' },
+  ],
+  [],
+  [],
+  [
     { id: 'p32-33.txt', name: 'p32-33' },
     { id: 'p34-35.txt', name: 'p34-35' },
     { id: 'p36-37.txt', name: 'p36-37' },
