@@ -295,6 +295,7 @@ const HACKERS_N3_GROUPS = [
     { id: 'p42-43.txt', name: 'p42-43' },
     { id: 'p44-45.txt', name: 'p44-45' },
     { id: 'p46-47.txt', name: 'p46-47' },
+    { id: 'p00-hard1.txt', name: 'hard1' },
   ],
   [
     { id: 'p62-63.txt', name: 'p62-63' },
@@ -303,6 +304,7 @@ const HACKERS_N3_GROUPS = [
     { id: 'p68-69.txt', name: 'p68-69' },
     { id: 'p70-71.txt', name: 'p70-71' },
     { id: 'p72-73.txt', name: 'p72-73' },
+    { id: 'p00-hard2.txt', name: 'hard2' },
   ],
   [
     { id: 'p88-89.txt', name: 'p88-89' },
@@ -312,6 +314,7 @@ const HACKERS_N3_GROUPS = [
     { id: 'p96-97.txt', name: 'p96-97' },
     { id: 'p98-99.txt', name: 'p98-99' },
     { id: 'p100-101.txt', name: 'p100-101' },
+    { id: 'p00-hard3.txt', name: 'hard3' },
   ],
   [
     { id: 'p116-117.txt', name: 'p116-117' },
@@ -319,6 +322,7 @@ const HACKERS_N3_GROUPS = [
     { id: 'p120-121.txt', name: 'p120-121' },
     { id: 'p122-123.txt', name: 'p122-123' },
     { id: 'p124-125.txt', name: 'p124-125' },
+    { id: 'p00-hard4.txt', name: 'hard4' },
   ],
   [
     { id: 'p140-141.txt', name: 'p140-141' },
@@ -327,6 +331,7 @@ const HACKERS_N3_GROUPS = [
     { id: 'p146-147.txt', name: 'p146-147' },
     { id: 'p148-149.txt', name: 'p148-149' },
     { id: 'p150-151.txt', name: 'p150-151' },
+    { id: 'p00-hard5.txt', name: 'hard5' },
   ],
 ];
 
