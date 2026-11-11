@@ -1,4 +1,6 @@
 import React from 'react';
+import { CATEGORIES } from './CategorySelector';
+import './StudyMenu.css';
 
 // 한자 파일 데이터 (급수별 대괄호 중첩 구조)
 const KANJI_GROUPS = [
@@ -354,278 +356,51 @@ const TOEIC_FILES = Array.from({ length: 30 }, (_, i) => ({
   name: `Day ${i + 1}`
 }));
 
+const GROUPS = {
+  kanji: KANJI_GROUPS, japanese: JAPANESE_GROUPS, joayo: JOAYO_GROUPS,
+  hackers_n3: HACKERS_N3_GROUPS, darakwon_n3: DARAKWON_N3_GROUPS,
+  darakwon_n4: DARAKWON_N4_GROUPS, toeic: [TOEIC_FILES],
+};
+const GROUP_LABELS = {
+  japanese: ['개인 메모', '', '', '기초 어휘 · 문법', '', '', 'N4 필수어휘', 'N3 읽기', 'N3 비슷한 단어', 'N3 품사별 어휘', '민나 교재', '민나 문제'],
+  kanji: ['9급', '8급', '7급', '6급', '5급', '4급', '모아보기 · 복습'],
+  joayo: ['좋아요 下', '좋아요 4', '한자 단어'],
+  hackers_n3: ['개인 복습', '', '', '32–47쪽 · 복습', '62–73쪽 · 복습', '88–101쪽 · 복습', '116–125쪽 · 복습', '140–151쪽 · 복습'],
+  darakwon_n3: ['개인 메모', '1장 · 문제 1', '1장 · 문제 2', '1장 · 문제 3', '1장 · 문제 4', '1장 · 문제 5', '2장 어휘'],
+  darakwon_n4: ['집중 복습', '1장 · 문제 1', '1장 · 문제 2', '1장 · 문제 3', '2장 어휘', '3장 어휘'],
+  toeic: ['매일의 어휘'],
+};
+
 function DaySelector({ category, onSelectFile, onBack }) {
-  const getCategoryTitle = () => {
-    switch (category) {
-      case 'kanji':
-        return 'KANJI';
-      case 'japanese':
-        return 'JAPANESE';
-      case 'joayo':
-        return 'JOAYO';
-      case 'hackers_n3':
-        return 'HACKERS_N3';  
-      case 'darakwon_n3':
-        return 'DARAKWON_N3';
-        case 'darakwon_n4':
-          return 'DARAKWON_N4';
-      case 'toeic':
-        return 'TOEIC';
-      default:
-        return '';
-    }
-  };
+  const groups = GROUPS[category] || [];
+  const title = CATEGORIES.find((item) => item.id === category)?.name || '단어장';
+  const visibleGroups = groups.map((files, index) => ({
+    index, files,
+  })).filter((group) => group.files.length > 0);
+  const count = visibleGroups.reduce((total, group) => total + group.files.length, 0);
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <button
-        onClick={onBack}
-        style={{
-          marginBottom: '20px',
-          padding: '8px 16px',
-          fontSize: '14px',
-          cursor: 'pointer'
-        }}
-      >
-        ← 목록으로
-      </button>
-
-      <h2>{getCategoryTitle()} 학습 선택</h2>
-
-      {category === 'kanji' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {KANJI_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
+    <main className="study-menu">
+      <div className="sm-shell">
+        <header className="sm-top"><button className="sm-back" onClick={onBack}>← 전체 단어장</button></header>
+        <section className="sm-intro sm-list-intro">
+          <p className="sm-eyebrow">WORD COLLECTION</p>
+          <h1>{title}</h1>
+        </section>
+        <div className="sm-section-heading"><h2>학습 목록</h2><span aria-live="polite">{count}개의 단어장</span></div>
+        <div className="sm-groups">
+          {visibleGroups.map(({ index, files }) => (
+            <section className="sm-group" key={index} aria-labelledby={`group-${index}`}>
+              <h3 id={`group-${index}`}>{GROUP_LABELS[category]?.[index] || `학습 ${index + 1}`}</h3>
+              <div className="sm-files">
+                {files.map((file) => <button className="sm-file" key={file.id} onClick={() => onSelectFile(file.id, file.name)}><span>{file.name}</span><span className="sm-arrow" aria-hidden="true">→</span></button>)}
               </div>
-            </div>
+            </section>
           ))}
         </div>
-      )}
-
-      {category === 'japanese' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {JAPANESE_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {category === 'joayo' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {JOAYO_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {category === 'hackers_n3' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {HACKERS_N3_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {category === 'darakwon_n3' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {DARAKWON_N3_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {category === 'darakwon_n4' && (
-        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          {DARAKWON_N4_GROUPS.map((group, groupIdx) => (
-            <div key={groupIdx}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                  gap: '10px'
-                }}
-              >
-                {group.map((file) => (
-                  <button
-                    key={file.id}
-                    onClick={() => onSelectFile(file.id, file.name)}
-                    style={{
-                      padding: '14px 10px',
-                      fontSize: '15px',
-                      fontWeight: 'bold',
-                      borderRadius: '8px',
-                      border: '1px solid #ccc',
-                      backgroundColor: '#f8f9fa',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {file.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {category === 'toeic' && (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-            gap: '10px',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}
-        >
-          {TOEIC_FILES.map((file) => (
-            <button
-              key={file.id}
-              onClick={() => onSelectFile(file.id, file.name)}
-              style={{
-                padding: '14px 10px',
-                fontSize: '15px',
-                fontWeight: 'bold',
-                borderRadius: '8px',
-                border: '1px solid #ccc',
-                backgroundColor: '#f8f9fa',
-                cursor: 'pointer'
-              }}
-            >
-              {file.name}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+        <footer className="sm-footer">서두르지 않고, 한 단어씩.</footer>
+      </div>
+    </main>
   );
 }
 

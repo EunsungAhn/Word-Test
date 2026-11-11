@@ -1,0 +1,54 @@
+.japanese-quiz { min-height: 100vh; min-height: 100dvh; background: #f5f6f2; color: #243c33; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.japanese-quiz * { box-sizing: border-box; }
+.jq-layout { max-width: 960px; margin: 0 auto; padding: 36px 40px 48px; }
+.jq-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.jq-back { border: 0; background: transparent; color: #50645a; cursor: pointer; font: inherit; font-size: 14px; min-height: 44px; padding: 8px 0; }
+.jq-brand { font-size: 13px; color: #718078; letter-spacing: .04em; }
+.jq-session { max-width: 520px; margin: 52px auto 0; }
+.jq-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .16em; color: #6c8174; margin: 0 0 12px; }
+.jq-session h1 { font-size: 26px; font-weight: 600; letter-spacing: -.04em; overflow-wrap: anywhere; margin: 0 0 30px; line-height: 1.4; }
+.jq-progress-label { display: flex; justify-content: space-between; font-size: 12px; color: #758078; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+.jq-progress-label strong { color: #304d3f; font-weight: 600; }
+.jq-progress { height: 4px; border-radius: 4px; background: #e0e6de; overflow: hidden; }
+.jq-progress > div { height: 100%; background: #527461; border-radius: inherit; transition: width .2s ease; }
+.jq-card { margin: 24px 0; padding: 32px 24px; min-height: 330px; background: #fff; border: 1px solid #e5e9e1; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 8px 32px #243c3304; }
+.jq-card-label { color: #7a857d; font-size: 12px; margin-bottom: 28px; }
+.jq-card h2 { color: #203b2d; font-size: clamp(36px, 8vw, 60px); font-weight: 500; line-height: 1.4; margin: 0 0 24px; max-width: 100%; overflow-wrap: anywhere; }
+.jq-answer { min-height: 72px; display: flex; flex-direction: column; justify-content: center; width: 100%; overflow-wrap: anywhere; }
+.jq-reading { margin: 0 0 8px; font-size: 17px; color: #6c8070; line-height: 1.5; }
+.jq-meaning { margin: 0; font-size: 21px; line-height: 1.5; color: #304d3f; }
+.jq-hint { margin: 0; color: #7a857d; font-size: 13px; line-height: 1.7; }
+.jq-action { width: 100%; min-height: 58px; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #304f3e; border-radius: 14px; background: #304f3e; color: #fff; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .15s; }
+.jq-action:hover { background: #254231; }
+.jq-action:active { background: #1d3527; }
+.jq-action:focus-visible, .jq-back:focus-visible { outline: 3px solid #8fae99; outline-offset: 4px; }
+.jq-footer { margin: 20px 0 0; text-align: center; color: #7a857d; font-size: 12px; line-height: 1.6; }
+@media (max-width: 600px) { .jq-layout { padding: 16px 20px 28px; } .jq-session { margin-top: 32px; } .jq-session h1 { font-size: 23px; margin-bottom: 24px; } .jq-card { min-height: 310px; padding: 28px 20px; margin: 20px 0; border-radius: 20px; } .jq-brand { font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) { .jq-progress > div, .jq-action { transition: none; } }
+body:has(.japanese-quiz) { margin: 0; }
+.jq-card[role="button"] { cursor: pointer; }
+.jq-card[role="button"]:focus-visible { outline: 3px solid #8fae99; outline-offset: 4px; }
+.jq-kanji { width: 100%; border-top: 1px solid #e8ece5; margin-top: 20px; padding-top: 14px; text-align: left; }
+.jq-kanji-label { color: #7a857d; font-size: 11px; margin: 0 0 10px; letter-spacing: .04em; }
+.jq-kanji-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.jq-kanji-item { display: flex; align-items: center; gap: 10px; background: #f5f7f2; border-radius: 10px; padding: 8px 12px; }
+.jq-kanji-character { color: #304d3f; font-size: 24px; line-height: 1.4; }
+.jq-kanji-reading { color: #50645a; font-size: 14px; }
+@media (max-width: 400px) { .jq-kanji-item { padding: 8px 10px; gap: 8px; } .jq-kanji-reading { font-size: 13px; } }
+.jq-card:has(.jq-kanji) .jq-answer { min-height: 0; }
+.jq-card:has(.jq-kanji) .jq-kanji { margin-top: 32px; }
+@media (max-width: 600px) { .jq-card:has(.jq-kanji) .jq-kanji { margin-top: 28px; } }
+.jq-interactive-word { display: inline; }
+.jq-character-wrap { position: relative; display: inline-block; }
+.jq-character-button { display: inline; font: inherit; line-height: inherit; letter-spacing: inherit; color: inherit; border: 0; padding: 0; margin: 0; background: transparent; cursor: pointer; border-radius: 6px; }
+.jq-character-button:hover, .jq-character-button[aria-expanded="true"] { color: #527461; }
+.jq-character-button:focus-visible { outline: 2px solid #8fae99; outline-offset: 4px; }
+.jq-kanji-tooltip { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap; padding: 9px 14px; background: #304f3e; color: #fff; border-radius: 10px; font-size: 14px; font-weight: 400; line-height: 1.5; letter-spacing: 0; box-shadow: 0 4px 14px #243c3312; }
+.jq-kanji-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #304f3e; }
+.jq-kanji-tooltip { width: max-content; max-width: min(260px, calc(100vw - 32px)); white-space: normal; text-align: center; transform: translateX(calc(-50% + var(--tooltip-shift, 0px))); overflow-wrap: anywhere; }
+.jq-kanji-tooltip::after { left: calc(50% - var(--tooltip-shift, 0px)); }
+.jq-tooltip-note { display: block; margin-top: 4px; font-size: 11px; color: #d4dfd5; line-height: 1.5; }
+
+.jq-action-restart { background: #dce8d8; border-color: #dce8d8; color: #203b2d; }
+.jq-action-restart:hover { background: #cedfc9; border-color: #cedfc9; }
+.jq-action-restart:active { background: #bfd4b9; border-color: #bfd4b9; }

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import QuizLayout from './QuizLayout';
+import KanjiWord from './KanjiWord';
+import kanjiEntries from './data/kanji.json';
 
 function HACKERS_N3({ category, fileName, onBack }) {
   const [words, setWords] = useState([]);
@@ -76,51 +79,13 @@ function HACKERS_N3({ category, fileName, onBack }) {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
-      <h4>{displayTitle} ({currentIndex + 1} / {words.length})</h4>
-
-      {/* 수직 중앙 정렬(justifyContent: 'center') 적용 */}
-      <div 
-        // onClick={handleAction}
-        style={{
-          border: '2px solid #333', borderRadius: '12px', padding: '20px', margin: '20px 0',
-          height: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
-        }}
-      >
-        <h1 style={{ margin: '0 0 12px 0', fontSize: '56px', lineHeight: '1.1' }}>{currentWord.word}</h1>
-        
-        <div style={{ minHeight: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          {showMeaning ? (
-            <>
-              {currentWord.furigana && (
-                <p style={{ fontSize: '18px', color: '#AB47BC', margin: '0 0 4px 0', fontWeight: 'bold' }}>
-                {currentWord.furigana}
-            </p>
-              )}
-              <p style={{ fontSize: '22px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>
-                {currentWord.meaning}
-              </p>
-            </>
-          ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>정답을 확인하세요.</p>
-          )}
-        </div>
-      </div>
-
-      <button 
-        onClick={handleAction}
-        style={{
-          padding: '12px 24px', fontSize: '18px', color: '#fff', border: 'none', borderRadius: '6px',
-          cursor: 'pointer', width: '100%', maxWidth: '300px', fontWeight: 'bold',
-          backgroundColor: !showMeaning ? '#64B5F6' : (isLastWord ? '#FF9800' : '#78C850'),
-          transition: 'background-color 0.2s ease'
-        }}
-      >
-        {getButtonText()}
-      </button>
-    </div>
+    <QuizLayout
+      label="JAPANESE · 해커스 N3" language="ja"
+      onBack={onBack} displayTitle={displayTitle} currentIndex={currentIndex}
+      words={words} showMeaning={showMeaning} currentWord={currentWord}
+      isLastWord={isLastWord} handleAction={handleAction} getButtonText={getButtonText}
+      wordContent={<KanjiWord key={currentIndex} word={currentWord.word} entries={kanjiEntries} />}
+    />
   );
 }
 

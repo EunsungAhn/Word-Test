@@ -9,6 +9,7 @@ import JOAYOQuiz from './JOAYOQuiz';
 import DARAKWON_N3 from './DARAKWON_N3';
 import DARAKWON_N4 from './DARAKWON_N4';
 import HACKERS_N3 from './HACKERS_N3';
+import KanjiPreview from './KanjiPreview';
 
 // 라우터용 퀴즈 래퍼 컴포넌트 (URL 파라미터를 읽어와 Quiz 컴포넌트에 전달)
 function QuizWrapper() {
@@ -44,7 +45,7 @@ function DaySelectorWrapper() {
   return (
     <DaySelector
       category={category}
-      onSelectFile={(fileName) => navigate(`/${category}/${fileName}`)}
+      onSelectFile={(fileName) => navigate(`/${category}/${encodeURIComponent(fileName)}/`)}
       onBack={() => navigate('/')}
     />
   );
@@ -56,6 +57,7 @@ function App() {
 
   return (
     <Routes>
+      <Route path="/preview/kanji" element={<KanjiPreview />} />
       {/* 1. 홈 (메인 과목 선택 화면) -> http://localhost:3000/ */}
       <Route 
         path="/" 

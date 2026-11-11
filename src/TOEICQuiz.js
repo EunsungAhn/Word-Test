@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import QuizLayout from './QuizLayout';
 
 function TOEICQuiz({ category, fileName, onBack }) {
   const [words, setWords] = useState([]);
@@ -70,41 +71,13 @@ function TOEICQuiz({ category, fileName, onBack }) {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <button onClick={onBack} style={{ marginBottom: '20px', padding: '6px 12px', cursor: 'pointer' }}>← 목록으로</button>
-      <h3>TOEIC - {displayTitle} ({currentIndex + 1} / {words.length})</h3>
-
-      <div 
-        onClick={handleAction}
-        style={{
-          border: '2px solid #333', borderRadius: '12px', padding: '35px 20px 25px 20px', margin: '20px 0',
-          height: '160px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
-          alignItems: 'center', cursor: 'pointer', backgroundColor: '#fff', boxSizing: 'border-box'
-        }}
-      >
-        <h1 style={{ margin: '0 0 16px 0', fontSize: '32px', lineHeight: '1.2' }}>{currentWord.word}</h1>
-        
-        <div style={{ minHeight: '30px', display: 'flex', alignItems: 'center' }}>
-          {showMeaning ? (
-            <p style={{ fontSize: '20px', color: '#1E88E5', margin: 0, fontWeight: '500' }}>{currentWord.meaning}</p>
-          ) : (
-            <p style={{ color: '#ccc', margin: 0, fontSize: '14px' }}>정답을 확인하세요.</p>
-          )}
-        </div>
-      </div>
-
-      <button 
-        onClick={handleAction}
-        style={{
-          padding: '12px 24px', fontSize: '18px', color: '#fff', border: 'none', borderRadius: '6px',
-          cursor: 'pointer', width: '100%', maxWidth: '300px', fontWeight: 'bold',
-          backgroundColor: !showMeaning ? '#64B5F6' : (isLastWord ? '#FF9800' : '#78C850'),
-          transition: 'background-color 0.2s ease'
-        }}
-      >
-        {getButtonText()}
-      </button>
-    </div>
+    <QuizLayout
+      label="TOEIC · 해커스 노랭이" language="en"
+      onBack={onBack} displayTitle={displayTitle} currentIndex={currentIndex}
+      words={words} showMeaning={showMeaning} currentWord={currentWord}
+      isLastWord={isLastWord} handleAction={handleAction} getButtonText={getButtonText}
+      onCardAction={handleAction}
+    />
   );
 }
 
