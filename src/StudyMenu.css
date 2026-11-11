@@ -34,3 +34,27 @@ body:has(.study-menu) { margin: 0; }
 .study-menu button:focus-visible, .study-menu a:focus-visible { outline: 3px solid #8fae99; outline-offset: 3px; }
 @media (max-width: 700px) { .sm-shell { padding: 16px 20px 28px; } .sm-intro { margin-top: 32px; } .sm-intro h1 { font-size: 29px; } .sm-categories { grid-template-columns: 1fr; gap: 10px; } .sm-category { padding: 18px; min-height: 96px; } .sm-files { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sm-group { padding: 18px 14px; } .sm-top-note { font-size: 10px; } .sm-description { font-size: 13px; } }
 @media (max-width: 350px) { .sm-files { grid-template-columns: 1fr; } .sm-category { gap: 12px; } .sm-category-detail { font-size: 11px; } }
+
+/* Keep the existing mobile layout while making laptop menus easier to read. */
+@media (min-width: 900px) {
+  .sm-shell { max-width: 1120px; padding: 32px 48px 40px; }
+  .sm-top-note { font-size: 14px; }
+  .sm-back { font-size: 17px !important; min-height: 48px; }
+  .sm-intro { margin-top: 36px; }
+  .sm-eyebrow { font-size: 13px; }
+  .sm-intro h1 { font-size: 43px; }
+  .sm-description { font-size: 17px; }
+  .sm-section-heading h2 { font-size: 18px; }
+  .sm-section-heading > span { font-size: 15px; }
+  .sm-categories { gap: 16px; }
+  .sm-category { min-height: 128px; padding: 26px; gap: 22px; border-radius: 22px; }
+  .sm-mark { width: 56px; height: 56px; font-size: 28px; border-radius: 14px; }
+  .sm-category-name { font-size: 21px; }
+  .sm-category-detail { font-size: 15px; }
+  .sm-arrow { font-size: 18px; }
+  .sm-group { padding: 28px; }
+  .sm-group h3 { font-size: 16px; margin-bottom: 20px; }
+  .sm-files { gap: 12px; }
+  .sm-file { min-height: 64px; padding: 14px 18px; font-size: 17px !important; border-radius: 12px; }
+  .sm-footer { font-size: 14px; }
+}
